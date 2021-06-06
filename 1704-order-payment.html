@@ -1,0 +1,1517 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="baidu-site-verification" content="MfC8ppEukL">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS">
+
+    <title>7.3. 订单的支付宝支付 | 《L05 Laravel 教程 - 电商实战》 | Laravel 实战教程
+</title>
+
+    <meta name="author" content="Summer">
+    <meta name="description" content="接下来我们需要实现订单的支付功能。 1. 控制器 首先创建一个 PaymentController 控制器： $ php artisan make:controller PaymentController 在 PaymentController 中添加一个 payByAlipay 方法： app/Http/Control...
+">
+    <meta name="keywords" content="laravel教程,laravel书籍,laravel入门,laravel示例,laravel课程,laravel培训,php教程,php书籍">
+
+    <link rel="shortcut icon" href="uploads/sites/KDiyAbV0hj1ytHpRTOlVpucbLebonxeX.png">
+
+    <!-- Styles -->
+    <link href="./app.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {"csrfToken":"Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS"}    </script>
+
+    <script>
+        window.Config = {
+            'user_id': 7863,
+            'request_interval': 50000, // 消息通知检测周期
+            'notification_count': 0,
+            'token': 'Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS',
+            'environment': 'production',
+            'url': 'https://laravel-china.org',
+            'routes': {
+                'notificationsCount' : 'https://laravel-china.org/notifications/count',
+                'upload_image' : 'https://laravel-china.org/courses/upload_image',
+                'api_search' : 'https://laravel-china.org/courses/api_search'
+            },
+            'cdnDomain': 'https://laravel-china.org/',
+            'following_users': [],
+            'search_type': 'standard',
+            'book_id': 41,
+            'is_docs': "no",
+            'article_id': 1704,
+        };
+
+        var ShowCrxHint = 'no';
+    </script>
+
+    <style>
+
+        .ui.top.menu {
+            border-top: 4px solid #f46660;
+        }
+
+        .ui.fluid.search .results {
+            width: 550px;
+        }
+
+        @media  only screen and (max-width: 767px) {
+            .ui.top.menu > .ui.container {
+                height: 52px;
+                flex-direction: initial;
+            }
+        }
+
+
+    </style>
+
+        </head>
+<body class=" books-articles-show-page">
+
+                        <div class="ui vertical sidebar menu left" style="z-index: 99999">
+    <div class="item">
+        <b>L05 Laravel 教程 - 电商实战</b>
+    </div>
+
+
+
+        <div class="item">
+            <div class="header">
+                                    第一章. 基础信息
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1530" href="1530-preface.html">
+
+                                                    1.1. 序言
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1531" href="1531-about-the-author.html">
+
+                                                    1.2. 关于作者
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1532" href="1532-how-to-read-the-book-correctly.html">
+
+                                                    1.3. 践行至上
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1533" href="1533-writing-agreement.html">
+
+                                                    1.4. 写作约定
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1534" href="1534-issuance-of-instructions.html">
+
+                                                    1.5. 发行说明
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1535" href="1535-the-source-code-of-this-book.html">
+
+                                                    1.6. 本书源码
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1536" href="1536-feedback-error-correction.html">
+
+                                                    1.7. 反馈纠错
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1537" href="1537-common-problem.html">
+
+                                                    1.8. 常见问题
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第二章. 舞台布置
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1540" href="1540-development-environment.html">
+
+                                                    2.1. 开发环境
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1544" href="1544-module-division.html">
+
+                                                    2.2. 需求分析
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1672" href="1672-development-of-electric-business-project.html">
+
+                                                    2.3. 开发思路
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1543" href="1543-create-applications.html">
+
+                                                    2.4. 创建应用
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1579" href="1579-auxiliary-function.html">
+
+                                                    2.5. 辅助函数
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1578" href="1578-basic-layout.html">
+
+                                                    2.6. 基础布局
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1709" href="1709-summary.html">
+
+                                                    2.7. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第三章. 用户模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1545" href="1545-registration-and-login.html">
+
+                                                    3.1. 注册与登录
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1546" href="1546-verifying-mailbox.html">
+
+                                                    3.2. 验证邮箱（上）
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1584" href="1584-verification-mailbox-below.html">
+
+                                                    3.3. 验证邮箱（下）
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1565" href="1565-exceptions.html">
+
+                                                    3.4. 优雅地处理异常
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1547" href="1547-list-of-receiving-addresses.html">
+
+                                                    3.5. 收货地址列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1585" href="1585-new-receiving-address.html">
+
+                                                    3.6. 新建收货地址
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1586" href="1586-modifying-and-deleting-the-receiving-address.html">
+
+                                                    3.7. 修改和删除收货地址
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1710" href="1710-summary.html">
+
+                                                    3.8. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第四章. 管理后台
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1568" href="1568-install-the-encorelaravel-admin-extension-package.html">
+
+                                                    4.1. 安装 laravel-admin 扩展包
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1588" href="1588-user-list.html">
+
+                                                    4.2. 用户列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1589" href="1589-permissions-settings.html">
+
+                                                    4.3. 权限设置
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1711" href="1711-summary.html">
+
+                                                    4.4. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第五章. 商品模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1746" href="1746-product-model.html">
+
+                                                    5.1. 商品的数据结构设计
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1552" href="1552-list-of-goods.html">
+
+                                                    5.2. 后台商品列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1551" href="1551-managing-the-background-create-and-edit-goods.html">
+
+                                                    5.3. 后台创建和编辑商品
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1559" href="1559-user-interface-a-list-of-goods.html">
+
+                                                    5.4. 商品列表页面
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1660" href="1660-commodity-screening-and-sorting.html">
+
+                                                    5.5. 商品筛选、排序
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1595" href="1595-user-interface-commodity-details-page.html">
+
+                                                    5.6. 商品详情页
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1562" href="1562-collection-of-goods.html">
+
+                                                    5.7. 收藏商品
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1596" href="1596-user-interface-collection-of-goods-list.html">
+
+                                                    5.8. 收藏商品列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1712" href="1712-summary.html">
+
+                                                    5.9. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第六章. 购物车 &amp; 订单模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1557" href="1557-add-goods-to-a-shopping-cart.html">
+
+                                                    6.1. 添加商品到购物车
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1664" href="1664-look-at-the-shopping-cart.html">
+
+                                                    6.2. 查看购物车
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1558" href="1558-create-an-order.html">
+
+                                                    6.3. 订单的数据模型
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1703" href="1703-shopping-cart-under-a-single-page.html">
+
+                                                    6.4. 购物车下单页面
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1667" href="1667-closing-the-unpaid-order.html">
+
+                                                    6.5. 关闭未支付订单
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1560" href="1560-user-interface-order-list.html">
+
+                                                    6.6. 用户订单列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1669" href="1669-user-interface-order-details-page.html">
+
+                                                    6.7. 用户订单详情页
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1748" href="1748-encapsulation-business-code.html">
+
+                                                    6.8. 封装业务代码
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1714" href="1714-summary.html">
+
+                                                    6.9. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第七章. 支付模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1567" href="1567-install-the-extension-package-yansongda-pay.html">
+
+                                                    7.1. 安装扩展包 yansongda/pay
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1549" href="1549-alipay-to-pay.html">
+
+                                                    7.2. 集成支付宝
+                                            </a>
+
+
+
+
+
+                    <a class="item active article-position-1704" href="1704-order-payment.html">
+
+                                                    7.3. 订单的支付宝支付
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1550" href="1550-wechat-payment.html">
+
+                                                    7.4. 集成微信支付
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1705" href="1705-wechat-payment-for-order.html">
+
+                                                    7.5. 订单的微信支付
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1602" href="1602-perfect-the-logic-after-payment.html">
+
+                                                    7.6. 完善支付后逻辑
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1715" href="1715-summary.html">
+
+                                                    7.7. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第八章. 完善订单模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1561" href="1561-management-backstage-order-list.html">
+
+                                                    8.1. 管理后台 - 订单列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1675" href="1675-management-backstage-order-details.html">
+
+                                                    8.2. 管理后台 - 订单详情
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1555" href="1555-delivery-and-confirmation-of-receipt.html">
+
+                                                    8.3. 管理后台 - 订单发货
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1676" href="1676-user-interface-confirm-receipt.html">
+
+                                                    8.4. 用户界面 - 确认收货
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1630" href="1630-evaluation-of-goods.html">
+
+                                                    8.5. 评价商品
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1556" href="1556-user-interface-application-refund.html">
+
+                                                    8.6. 用户界面 - 申请退款
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1677" href="1677-managing-backstage-processing-refunds.html">
+
+                                                    8.7. 管理后台 - 拒绝退款
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1679" href="1679-admin-agreed-to-refund-alipay.html">
+
+                                                    8.8. 管理后台 - 同意退款（支付宝）
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1680" href="1680-management-backstage-approval-of-a-refund-wechat.html">
+
+                                                    8.9. 管理后台 - 同意退款（微信）
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1716" href="1716-summary.html">
+
+                                                    8.10. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第九章. 优惠券模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1681" href="1681-management-backstage-coupon-management.html">
+
+                                                    9.1. 管理后台 - 优惠券列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1682" href="1682-manage-the-backstage-add-and-edit-coupons.html">
+
+                                                    9.2. 管理后台 - 添加、修改、删除优惠券
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1683" href="1683-user-interface-use-coupons.html">
+
+                                                    9.3. 用户界面 - 检查优惠券
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1684" href="1684-user-interface-using-coupons.html">
+
+                                                    9.4. 用户界面 - 使用优惠券下单
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1707" href="1707-optimizes-the-coupon-module.html">
+
+                                                    9.5. 优化优惠券模块
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1718" href="1718-summary.html">
+
+                                                    9.6. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第十章. 杂项
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1685" href="1685-configure-the-background-permissions.html">
+
+                                                    10.1. 配置后台权限
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1687" href="1687-perfect-false-data-filling.html">
+
+                                                    10.2. 完善假数据填充
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1708" href="1708-back-up-management-of-backstage-data.html">
+
+                                                    10.3. 备份管理后台数据
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1717" href="1717-system-safety.html">
+
+                                                    10.4. 系统安全
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1721" href="1721-summary.html">
+
+                                                    10.5. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第十一章. 附录
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1747" href="1747-summary.html">
+
+                                                    11.1. 全书总结
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-2023" href="2023-ecommerce-advance.html">
+
+                                                    11.2. 电商进阶课程
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1719" href="1719-the-next-step-of-learning.html">
+
+                                                    11.3. 下一步学习建议
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1720" href="1720-work-sharing-and-learning.html">
+
+                                                    11.4. 作品分享和学习感悟
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+</div>
+
+    <div class="ui basic teal  launch right attached fixed button" id="right-menu-btn">
+        <i class="content icon"></i>
+        <span class="text">Menu</span>
+    </div>
+
+    <div class="ui top menu sidebar stackable">
+    <a href="topics" class="item no-pjax">社区</a>
+<a href="docs" class="item no-pjax">文档</a>
+<a href="c/qa" class="item">问答</a>
+
+<a href="c/php-jobs" class="item">工作</a>
+
+<div class="ui fluid category search item">
+<div class="ui icon input">
+<input class="prompt" type="text" placeholder="">
+<i class="search icon"></i>
+</div>
+<div class="results"></div>
+</div>
+
+
+
+            <a class="ui item" href="courses/my/referrals">
+                        <i class="icon gift"></i> 邀请好友
+        </a>
+
+    <a class="item" href="courses/histories" title="浏览历史">
+
+
+        <i class="ui icon history grey middle disabled"></i> 浏览历史
+    </a>
+
+    <a class="item" href="notifications/unread" title="消息通知">
+        <span class="ui basic circular label notification" id="notification-count">
+            0
+        </span>
+    </a>
+
+    <a href="users/7863" class="item">
+        <img class="ui avatar image" src="uploads/avatars/7863_1518282225.jpg?imageView2/1/w/100/h/100">  
+        冷暖自知
+    </a>
+
+    <a href="courses/my/coupons" class="item">
+        <i class="icon payment"></i>
+            卡券中心
+    </a>
+
+    <form id="logout-form" action="https://laravel-china.org/logout" method="POST" style="display: none;">
+        <input type="hidden" name="_token" value="Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS">
+    </form>
+</div>
+
+
+    <div class="pusher">
+
+        <div class="main container">
+
+            <script type="text/javascript">
+        Config.search_type = 'category';
+    </script>
+
+
+    <div class="ui centered grid container stackable">
+
+        <div class="twelve wide column">
+
+
+            <div class="ui segment article-content">
+
+
+                <div class="extra-padding">
+
+                    <h1>
+                        <i class="grey file text outline icon"></i>
+                        <span style="line-height: 34px;">7.3. 订单的支付宝支付 </span>
+
+
+                        <div class="pull-right">
+
+        <div class="ui labeled button tiny">
+
+          <div class="ui compact button tiny kb-star basic " data-act="star" data-id="1704">
+
+            <i class="thumbs up icon"></i> <span class="state">点赞</span>
+          </div>
+          <a class="ui basic label star_count">10</a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+                    </h1>
+
+                                            <p class="book-article-meta">
+
+        <a href="courses/laravel-shop"><i class="icon book"></i> L05 Laravel 教程 - 电商实战</a>
+
+        <span class="divider">/</span>
+
+        <span class="relative clicked-hide-guide">
+                        <a class="chapter-title user-has-done-btn" data-act="chapter_sidebar_clicked" href="javascript:void(0);"><i class="icon map signs"></i> 第七章. 支付模块</a>
+        </span>
+    </p>
+
+
+
+
+                    <div class="ui divider"></div>
+
+                    <div class="ui readme markdown-body content-body">
+
+
+
+
+
+                            <p>接下来我们需要实现订单的支付功能。</p>
+<h2>1. 控制器</h2>
+<p>首先创建一个 <code>PaymentController</code> 控制器：</p>
+<pre><code class=" language-php">$ php artisan make:controller PaymentController</code></pre>
+<p>在 <code>PaymentController</code> 中添加一个 <code>payByAlipay</code> 方法：</p>
+<p><em>app/Http/Controllers/PaymentController.php</em></p>
+<pre><code class=" language-php">use App\Models\Order;
+use App\Exceptions\InvalidRequestException;
+.
+.
+.
+    public function payByAlipay(Order $order, Request $request)
+    {
+        // 判断订单是否属于当前用户
+        $this-&gt;authorize('own', $order);
+        // 订单已支付或者已关闭
+        if ($order-&gt;paid_at || $order-&gt;closed) {
+            throw new InvalidRequestException('订单状态不正确');
+        }
+
+        // 调用支付宝的网页支付
+        return app('alipay')-&gt;web([
+            'out_trade_no' =&gt; $order-&gt;no, // 订单编号，需保证在商户端不重复
+            'total_amount' =&gt; $order-&gt;total_amount, // 订单金额，单位元，支持小数点后两位
+            'subject'      =&gt; '支付 Laravel Shop 的订单：'.$order-&gt;no, // 订单标题
+        ]);
+    }</code></pre>
+<h2>2. 路由</h2>
+<p>接下来添加对应的路由：</p>
+<p><em>routes/web.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+Route::group(['middleware' =&gt; 'auth'], function() {
+    .
+    .
+    .
+    Route::group(['middleware' =&gt; 'email_verified'], function() {
+        .
+        .
+        .
+        Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')-&gt;name('payment.alipay');
+    });
+});</code></pre>
+<h2>3. 添加支付入口</h2>
+<p>接下来我们需要在未支付的订单页面加入支付宝支付的按钮：</p>
+<p><em>resources/views/orders/show.blade.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+&lt;div&gt;
+  &lt;span&gt;订单状态：&lt;/span&gt;
+  .
+  .
+  .
+&lt;/div&gt;
+&lt;!-- 支付按钮开始 --&gt;
+@if(!$order-&gt;paid_at &amp;&amp; !$order-&gt;closed)
+&lt;div class="payment-buttons"&gt;
+  &lt;a class="btn btn-primary btn-sm" href="{{ route('payment.alipay', ['order' =&gt; $order-&gt;id]) }}"&gt;支付宝支付&lt;/a&gt;
+&lt;/div&gt;
+@endif
+&lt;!-- 支付按钮结束 --&gt;
+.
+.
+.</code></pre>
+<p>然后配置一下按钮的样式：</p>
+<p><em>resources/assets/sass/app.scss</em></p>
+<pre><code class=" language-php">.
+.
+.
+.orders-show-page {
+  .
+  .
+  .
+  .payment-buttons {
+    margin-top: 10px;
+    padding-right: 10px;
+  }
+}</code></pre>
+<p>现在访问一下没有被关闭的订单详情页看看效果：：</p>
+<p><img src="uploads/images/201806/04/5320/KKZ5a0RSjI.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>点击 <code>支付宝支付</code> 按钮：</p>
+<p><img src="uploads/images/201806/04/5320/xTGNckV9A8.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>可以看到对应的标题和金额。继续后面的登录和支付流程：</p>
+<p><img src="uploads/images/201805/23/5320/axoXW5KpPk.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>支付成功之后发现页面一直停留在支付宝的页面没有跳转，这是因为我们没有配置支付的前端回调，我们之后会说到。</p>
+<p>现在再次访问刚刚的订单页面：</p>
+<p><img src="uploads/images/201806/04/5320/9i3NsEZdN8.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>发现状态还是未支付。这是因为我们现在还没写更新状态的逻辑，接下来我们就要来实现这块。</p>
+<h2>4. 支付回调</h2>
+<p>支付宝的支付回调分为 <strong>前端回调</strong> 和 <strong>服务器回调</strong>。</p>
+<ul>
+<li>
+<p><strong>前端回调</strong> 是指当用户支付成功之后支付宝会让用户浏览器跳转回项目页面并带上支付成功的参数，也就是说前端回调依赖于用户浏览器，如果用户在跳转之前关闭浏览器，将无法收到前端回调。</p>
+</li>
+<li>
+<strong>服务器回调</strong> 是指支付成功之后支付宝的服务器会用订单相关数据作为参数请求项目的接口，不依赖用户浏览器。</li>
+</ul>
+
+<p>因此我们判断支付是否成功要以服务器端回调为准。</p>
+<p>我们需要在 <code>PaymentController</code> 中新增两个方法，分别用于处理前端和服务器端回调。</p>
+<p><em>app/Http/Controllers/PaymentController.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+    // 前端回调页面
+    public function alipayReturn()
+    {
+        // 校验提交的参数是否合法
+        $data = app('alipay')-&gt;verify();
+        dd($data);
+    }
+
+    // 服务器端回调
+    public function alipayNotify()
+    {
+        $data = app('alipay')-&gt;verify();
+        \Log::debug('Alipay notify', $data-&gt;all());
+    }</code></pre>
+<p>代码解析：</p>
+<ul>
+<li>
+<code>app('alipay')-&gt;verify()</code> 用于校验提交的参数是否合法，支付宝的前端跳转会带有数据签名，通过校验数据签名可以判断参数是否被恶意用户篡改。同时该方法还会返回解析后的参数。</li>
+<li>
+<code>dd($data);</code> 输出解析后的数据，我们要先看看会返回什么再决定如何处理。</li>
+<li>
+<code>\Log::debug('Alipay notify', $data-&gt;all());</code> 由于服务器端的请求我们无法看到返回值，使用 <code>dd</code> 就不行了，所以需要通过日志的方式来保存。 </li>
+</ul>
+
+<p>接下来将这两个方法注册到路由：</p>
+<p><em>routes/web.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+Route::group(['middleware' =&gt; 'auth'], function () {
+    .
+    .
+    .
+    Route::group(['middleware' =&gt; 'email_verified'], function () {
+        .
+        .
+        .
+        Route::get('payment/alipay/return', 'PaymentController@alipayReturn')-&gt;name('payment.alipay.return');
+    });
+});
+Route::post('payment/alipay/notify', 'PaymentController@alipayNotify')-&gt;name('payment.alipay.notify');</code></pre>
+<blockquote>
+<p>服务器端回调的路由不能放到带有 <code>auth</code> 中间件的路由组中，因为支付宝的服务器请求不会带有认证信息。</p>
+</blockquote>
+<p>接下来我们把这两个回调地址配置到支付宝的支付实例里：</p>
+<p><em>app/Providers/AppServiceProvider.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+        $this-&gt;app-&gt;singleton('alipay', function () {
+            $config               = config('pay.alipay');
+            $config['notify_url'] = route('payment.alipay.notify');
+            $config['return_url'] = route('payment.alipay.return');
+            .
+            .
+            .
+        });
+.
+.
+.</code></pre>
+<p><code>notify_url</code> 代表服务器端回调地址，<code>return_url</code> 代表前端回调地址。</p>
+<blockquote>
+<p>注意：回调地址必须是完整的带有域名的 URL，不可以是相对路径。使用 <code>route()</code> 函数生成的 URL 默认就是带有域名的完整地址。</p>
+</blockquote>
+<p>接下来我们再一次测试支付流程。</p>
+<blockquote>
+<p>需要创建一个新的订单来支付，因为刚刚那个订单在支付宝的系统里已经认为是支付成功了。</p>
+</blockquote>
+<p>支付完成之后看到支付宝页面准备跳转回商户页面：</p>
+<p><img src="uploads/images/201804/21/5320/r2Fz2Kek4Q.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p><img src="uploads/images/201806/04/5320/LxgvOOptUG.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>可以看到已经跳转到我们的前端回调页面并且通过 <code>dd()</code> 函数将回调的数据打印了出来。图中框起来的部分就是我们支付的这笔订单的流水号。</p>
+<p>但是我们并没有收到服务器端回调，这是因为我们的服务器运行在本地，<code>https://shop.test</code> 这个域名也只是对我们本地生效，支付宝服务器无法请求到我们的服务器端回调地址。</p>
+<p>我们可以通过 <code>requestbin</code> 服务来帮我们捕获服务器端回调的数据。</p>
+<blockquote>
+<p><code>requestbin</code> 是一个免费开源的网站，任何人都可以在上面申请一个专属的 URL（通常有效期 48 小时），对这个 URL 的任何类型的请求都会被记录下来，URL 的创建者可以看到请求的具体信息，包含请求时间、请求头、请求具体数据等。</p>
+</blockquote>
+<p>访问 <a href="https://requestbin.fullcontact.com/">https://requestbin.fullcontact.com/</a> ，点击中间那个绿按钮 <code>Create a RequestBin</code>：</p>
+<blockquote>
+<p>如果上面的网站因为网络问题，不能正常使用，可以使用 <a href="http://requestbin.leo108.com/">http://requestbin.leo108.com/</a> 作为替代。这是我专为此课程搭的一个 RequestBin 国内镜像服务。</p>
+</blockquote>
+<p><img src="uploads/images/201804/21/5320/PaEUkXpl54.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>系统就会给你分配一个 URL：</p>
+<p><img src="uploads/images/201804/21/5320/v3JFpVJzdk.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>我们把这个 URL 复制下来，放到我们之前放服务器端回调地址的参数上：</p>
+<p><em>app/Providers/AppServiceProvider.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+        $this-&gt;app-&gt;singleton('alipay', function () {
+            $config               = config('pay.alipay');
+            $config['notify_url'] = 'http://requestbin.fullcontact.com/128xjcv1';
+            $config['return_url'] = route('payment.alipay.return');
+            .
+            .
+            .
+        });
+.
+.
+.</code></pre>
+<p>再创建一笔订单，走一次支付流程，等到前端回调完成之后，我们点击 requestbin 页面右上角文本框左侧的那个圆点（颜色可能不一样），会跳转到请求日志页面：</p>
+<p><img src="uploads/images/201806/04/5320/egHoak6hvZ.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>可以看到里面已经有请求数据了：</p>
+<p><img src="uploads/images/201806/04/5320/7euoHYPPsB.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>接下来我们试着把这个请求数据提交到我们本地的回调 URL，把页面上 <code>RAW BODY</code>（原始请求数据）下方的数据复制下来：</p>
+<p><img src="uploads/images/201806/04/5320/nliScppmEX.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>然后在终端使用 <code>curl</code> 来请求我们的服务器端回调 URL：</p>
+<pre><code class=" language-php">$ curl -XPOST http://shop.test/payment/alipay/notify -d'复制 raw body 内容'</code></pre>
+<blockquote>
+<p>注意请求内容的两端都要加上单引号</p>
+</blockquote>
+<p><img src="uploads/images/201804/21/5320/zn1RMhCEUa.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>发现返回的结果不对，居然返回了一个 Html 页面，标题是 <code>Page Expired</code>。在 Laravel 里 <code>Page Expired</code> 通常代表 Post 请求缺少 CSRF Token 或者 CSRF Token 过期。由于我们这个 URL 是给支付宝服务器调用的，肯定不会有 CSRF Token，所以需要把这个 URL 加到 CSRF 白名单里：</p>
+<p><em>app/Http/Middleware/VerifyCsrfToken.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+    protected $except = [
+        'payment/alipay/notify',
+    ];
+.
+.
+.</code></pre>
+<p>如果访问的 URL 能够匹配上 <code>$except</code> 里任意一项，Laravel 就不会去检查 CSRF Token。</p>
+<p>在终端里按 <code>↑</code> 键可以直接回到上一条命令，再次回车：</p>
+<p><img src="uploads/images/201804/21/5320/Q1iX0OinYA.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>可以看到这回没有返回任何错误信息了，我们去看一下日志里保存了什么数据。</p>
+<blockquote>
+<p>一定要用 <code>less</code> 命令查看日志文件，而不是 <code>vim</code> 或者其他编辑器。通常来说日志文件会特别大，特别是线上的服务器，如果用 <code>vim</code> 或者其他编辑器打开，会把整个日志文件加载到内存中，有可能立马将服务器内存撑爆导致系统故障。<code>less</code> 命令则不会，可以理解为按需加载文件内容到内存中。</p>
+</blockquote>
+<pre><code class=" language-php">$ less storage/logs/laravel.log</code></pre>
+<p>默认情况是显示日志的开头几行，按 <code>shift + g</code> 可以跳转到日志文件的末尾：</p>
+<p><img src="uploads/images/201806/04/5320/zWrduTvrNx.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>可以看到我们的打日志的代码成功运行了，记录下解析后的支付宝服务器端回调数据。</p>
+<p>现在我们已经知道支付宝的回调有哪些数据了，接下来我们要完善一下两个回调接口：</p>
+<p><em>app/Http/Controllers/PaymentController.php</em></p>
+<pre><code class=" language-php">use Carbon\Carbon;
+.
+.
+.
+    public function alipayReturn()
+    {
+        try {
+            app('alipay')-&gt;verify();
+        } catch (\Exception $e) {
+            return view('pages.error', ['msg' =&gt; '数据不正确']);
+        }
+
+        return view('pages.success', ['msg' =&gt; '付款成功']);
+    }
+
+    public function alipayNotify()
+    {
+        // 校验输入参数
+        $data  = app('alipay')-&gt;verify();
+        // $data-&gt;out_trade_no 拿到订单流水号，并在数据库中查询
+        $order = Order::where('no', $data-&gt;out_trade_no)-&gt;first();
+        // 正常来说不太可能出现支付了一笔不存在的订单，这个判断只是加强系统健壮性。
+        if (!$order) {
+            return 'fail';
+        }
+        // 如果这笔订单的状态已经是已支付
+        if ($order-&gt;paid_at) {
+            // 返回数据给支付宝
+            return app('alipay')-&gt;success();
+        }
+
+        $order-&gt;update([
+            'paid_at'        =&gt; Carbon::now(), // 支付时间
+            'payment_method' =&gt; 'alipay', // 支付方式
+            'payment_no'     =&gt; $data-&gt;trade_no, // 支付宝订单号
+        ]);
+
+        return app('alipay')-&gt;success();
+    }</code></pre>
+<p>其中 <code>app('alipay')-&gt;success()</code> 返回数据给支付宝，支付宝得到这个返回之后就认为我们已经处理好这笔订单，不会再发生这笔订单的回调了。如果我们返回其他数据给支付宝，支付宝就会每隔一段时间就发送一次服务器端回调，直到我们返回了正确的数据为准。</p>
+<p>接下来我们再在终端中发起回调请求：</p>
+<p><img src="uploads/images/201804/21/5320/EuZCxa3WsI.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>可以看到我们的接口返回了 <code>success</code>。</p>
+<p>再到数据库中看看订单的状态：</p>
+<p><img src="uploads/images/201806/04/5320/QZiGgr254d.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p><code>paid_at</code>、<code>payment_method</code> 和 <code>payment_no</code> 也都有数据了。</p>
+<p>再访问我们的订单列表页面：<a href="orders">http://shop.test/orders</a></p>
+<p><img src="uploads/images/201806/04/5320/Z4KZ4mUecu.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>页面上显示的状态也变成了 <code>已支付</code>。</p>
+<h2>Git 代码版本控制</h2>
+<p>接着让我们将这些文件加入到版本控制中：</p>
+<pre><code class=" language-php">$ git add -A
+$ git commit -m "订单支付"</code></pre>
+
+                            <p></p>
+<div style="position: absolute!important;height: 1px;width: 1px;overflow: hidden;clip: rect(1px,1px,1px,1px);">本文章首发在 <a href="https://laravel-china.org/">Laravel China 社区</a>
+</div>
+                                            </div>
+
+                </div>
+
+
+            </div>
+
+                            <div>
+                    <a class="ui basic button small  pull-left popover " data-content="7.2. 集成支付宝" href="1549-alipay-to-pay.html"><i class="icon arrow left"></i> 上一篇</a>
+                    <a class="ui basic button small  pull-right popover " data-content="7.4. 集成微信支付" href="1550-wechat-payment.html">下一篇 <i class="icon arrow right"></i></a>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+        </div>
+
+
+
+
+    <!-- Scripts -->
+    <script src="./app.js"></script>
+
+    <script>
+        $(document).ready(function()
+        {
+                            $('.user-has-done-btn').api({
+                    method : 'POST',
+                    url: 'https://laravel-china.org/courses/has_done/{act}',
+                    data: {
+                      '_token': Config.token
+                    },
+                });
+                    });
+    </script>
+
+            <script>
+        // Baidu link submit
+        (function(){
+            if(typeof is_private_view_only === "undefined"){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            }
+        })();
+        </script>
+
+
+
+
+<script>
+    $(document).ready(function()
+    {
+        function changeStarState(that) {
+            if (that.data('act') == 'star') {
+                that.data('act', 'unstar');
+                that.find('.state').text('已点赞');
+            } else {
+                that.data('act', 'star');
+                that.find('.state').text('点赞');
+            }
+        }
+
+        $('.kb-star-big.button').api({
+            method : 'POST',
+            url: 'https://laravel-china.org/courses/articles/{id}/{act}',
+            data: {
+              '_token': Config.token
+            },
+            onSuccess: function(response) {
+                $('a.star_count').text(response.count);
+            }
+        }).state({
+            onActivate: function() {
+                changeStarState($('.kb-star.button'));
+                changeStarState($(this));
+                $('.kb-star-big.button').toggleClass('teal');
+            },
+            onDeactivate: function() {
+                changeStarState($('.kb-star.button'));
+                changeStarState($(this));
+                $('.kb-star-big.button').toggleClass('teal');
+            }
+        });
+
+        function changeWatchState(that) {
+            if (that.data('act') == 'watch') {
+                that.data('act', 'unwatch');
+                that.find('.state').text('已关注');
+            } else {
+                that.data('act', 'watch');
+                that.find('.state').text('关注');
+            }
+            // that.find('.eye.icon').toggleClass('yellow');
+        }
+
+        $('.kb-watch.button').api({
+            method : 'POST',
+            url: 'https://laravel-china.org/courses/articles/{id}/{act}',
+            data: {
+              '_token': Config.token
+            },
+            onSuccess: function(response) {
+                $('a.watch_count').text(response.count);
+            }
+        }).state({
+            onActivate: function() {
+                changeWatchState($(this));
+            },
+            onDeactivate: function() {
+                changeWatchState($(this));
+            }
+        });
+
+        var lastScrollTop = 0;
+        window.addEventListener("scroll", function(){
+           var st = window.pageYOffset || document.documentElement.scrollTop;
+           if (st > lastScrollTop){
+               document.getElementById("right-menu-btn").style.left = "-100%";
+           } else {
+              document.getElementById("right-menu-btn").style.left = "0";
+           }
+           lastScrollTop = st;
+        }, false);
+
+        $('#apply-for-ta-btn').click(function(event) {
+            swal({
+                title: "",
+                html: '你正在申请成为本课程的『见习助教』，助教的主要任务是解答同学们的提问，当有新问题提交时，系统会第一时间通知你。『解答提问』可以提高你的技术能力，锻炼你的问题解决能力，也可以提高你的影响力。满足以下条件后可晋升为 <a href="roles/TeachingAssistant" target="_blank">『金牌助教』</a> 用户身份。 <hr style="background: #fff;display: block;height: 1px;border: 0;border-top: 1px solid #d4d4d4;margin: 1em 0;padding: 0;"><div style="text-align:left;"><ol><li>5 个以上『选中答案』；</li><li>所有回复获得过 10 个以上点赞；</li><li>一个月内不回答问题将视为放弃，会自动取消『见习助教』身份，并不再接收到『新问题』的消息通知。</li></ol></div>',
+                type: "warning",
+                // input: 'checkbox',
+                showCancelButton: true,
+                cancelButtonText: "取消",
+                confirmButtonText: "申请加入"
+            }).then(function(){
+                $('#apply-for-ta-form').submit();
+            }).catch(swal.noop);
+        });
+
+        $('#cancel-for-ta-btn').click(function(event) {
+            swal({
+                title: "",
+                html: '您要取消『见习助教』的身份吗？取消后将不再接收到课程问题通知。',
+                type: "warning",
+                // input: 'checkbox',
+                showCancelButton: true,
+                cancelButtonText: "取消",
+                confirmButtonText: "取消申请"
+            }).then(function(){
+                $('#apply-for-ta-form').submit();
+            }).catch(swal.noop);
+       });
+
+    });
+</script>
+
+
+<script>
+
+    $(document).ready(function()
+    {
+        function changeStarState(that) {
+            if (that.data('act') == 'star') {
+                that.data('act', 'unstar');
+                that.find('.state').text('已点赞');
+            } else {
+                that.data('act', 'star');
+                that.find('.state').text('点赞');
+            }
+        }
+        $('.kb-star.button').api({
+            method : 'POST',
+            url: 'https://laravel-china.org/courses/articles/{id}/{act}',
+            data: {
+              '_token': Config.token
+            },
+            onSuccess: function(response) {
+                $('a.star_count').text(response.count);
+
+                            }
+        }).state({
+            onActivate: function() {
+                changeStarState($(this));
+                changeStarState($('.kb-star-big.button'));
+            },
+            onDeactivate: function() {
+                changeStarState($(this));
+                changeStarState($('.kb-star-big.button'));
+            }
+        });
+
+    });
+
+
+</script>
+
+</body>
+</html>

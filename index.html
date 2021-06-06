@@ -1,0 +1,2159 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="baidu-site-verification" content="MfC8ppEukL">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS">
+
+    <title>《L05 Laravel 教程 - 电商实战》 | Laravel 实战教程
+</title>
+
+    <meta name="author" content="Summer">
+    <meta name="description" content="Laravel 实战教程存在的唯一目的是为了让你高效地习得 Laravel 编程技能。">
+    <meta name="keywords" content="laravel教程,laravel书籍,laravel入门,laravel示例,laravel课程,laravel培训,php教程,php书籍">
+
+    <link rel="shortcut icon" href="uploads/sites/KDiyAbV0hj1ytHpRTOlVpucbLebonxeX.png">
+
+    <!-- Styles -->
+    <link href="./app.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {"csrfToken":"Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS"}    </script>
+
+    <script>
+        window.Config = {
+            'user_id': 7863,
+            'request_interval': 50000, // 消息通知检测周期
+            'notification_count': 0,
+            'token': 'Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS',
+            'environment': 'production',
+            'url': 'https://laravel-china.org',
+            'routes': {
+                'notificationsCount' : 'https://laravel-china.org/notifications/count',
+                'upload_image' : 'https://laravel-china.org/courses/upload_image',
+                'api_search' : 'https://laravel-china.org/courses/api_search'
+            },
+            'cdnDomain': 'https://laravel-china.org/',
+            'following_users': [],
+            'search_type': 'standard',
+            'book_id': 41,
+            'is_docs': "no",
+            'article_id': 0,
+        };
+
+        var ShowCrxHint = 'no';
+    </script>
+
+    <style>
+
+        .ui.top.menu {
+            border-top: 4px solid #f46660;
+        }
+
+        .ui.fluid.search .results {
+            width: 550px;
+        }
+
+        @media  only screen and (max-width: 767px) {
+            .ui.top.menu > .ui.container {
+                height: 52px;
+                flex-direction: initial;
+            }
+        }
+
+
+    </style>
+
+    </head>
+<body class=" books-books-show-page">
+
+
+    <div class="ui top menu sidebar stackable">
+    <a href="topics" class="item no-pjax">社区</a>
+<a href="docs" class="item no-pjax">文档</a>
+<a href="c/qa" class="item">问答</a>
+
+<a href="c/php-jobs" class="item">工作</a>
+
+<div class="ui fluid category search item">
+<div class="ui icon input">
+<input class="prompt" type="text" placeholder="">
+<i class="search icon"></i>
+</div>
+<div class="results"></div>
+</div>
+
+
+
+            <a class="ui item" href="courses/my/referrals">
+                        <i class="icon gift"></i> 邀请好友
+        </a>
+
+    <a class="item" href="courses/histories" title="浏览历史">
+
+
+        <i class="ui icon history grey middle disabled"></i> 浏览历史
+    </a>
+
+    <a class="item" href="notifications/unread" title="消息通知">
+        <span class="ui basic circular label notification" id="notification-count">
+            0
+        </span>
+    </a>
+
+    <a href="users/7863" class="item">
+        <img class="ui avatar image" src="uploads/avatars/7863_1518282225.jpg?imageView2/1/w/100/h/100">  
+        冷暖自知
+    </a>
+
+    <a href="courses/my/coupons" class="item">
+        <i class="icon payment"></i>
+            卡券中心
+    </a>
+
+    <form id="logout-form" action="https://laravel-china.org/logout" method="POST" style="display: none;">
+        <input type="hidden" name="_token" value="Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS">
+    </form>
+</div>
+
+
+    <div class="pusher">
+
+        <div class="main container">
+
+            <script type="text/javascript">
+    Config.search_type = 'category';
+</script>
+
+<div class="ui centered grid container books-page stackable">
+    <div class="fourteen wide column">
+
+      <div class="ui segment">
+
+
+
+        <div class="content extra-padding">
+
+                          <div class="book header">
+    <div class="ui items">
+        <div class="item">
+            <div class="image">
+                <img class="ui image image-shadow " src="uploads/images/201806/12/1/RAjQ5R8DAS.jpg?imageView2/1/w/400/h/400">
+            </div>
+            <div class="content">
+                <div class="header" style="width:100%">
+                    L05 Laravel 教程 - 电商实战
+
+
+
+                                    </div>
+
+                <div class="description">
+
+
+                                                                            <div class="meta" style="line-height:24px">
+                                <a href="2023-ecommerce-advance.html">
+                                                                        <i class="icon clock"></i> 更新于 <span title="2018-09-11 03:16:57">19小时前</span>
+                                </a>
+                            </div>
+
+
+                    手把手带你开发一个电商项目，功能包括用户中心、收货地址、电商管理后台、权限管理、商品管理、商品 SKU、购物车模块、订单模块、支付模块（支付宝、微信支付）、商品评价、商品收藏、订单退款流程、优惠券模块，技术知识点包括 Laravel 中事务操作（Transaction）、支付接口调试、订单流水号生成、预加载与延迟预加载、事件和监听器、MailHog 调试邮件发送、Service 模式、自定义验证器等。
+                </div>
+
+                <div class="extra">
+
+                                                                                                                                            <a class="ui button teal" href="1530-preface.html"><i class="icon game"></i>开始训练</a>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+            <div class="ui  attached tabular menu" id="topics">
+    <a class="item active" href="courses/laravel-shop">
+        <i class="grey content icon"></i>
+        文章列表
+    </a>
+
+    </div>
+
+
+
+            <br>
+
+                                                <ol class=" sorted_table tree " data-chapterid="0" data-filetype="chapter">
+                        <li class="item" data-itemid="317" data-filetype="chapter" data-chapterid="317">
+
+
+        <i class="blue folder icon"></i>
+
+            第一章. 基础信息
+
+
+
+        <ol data-chapterid="317" class="chapter-container">
+                            <li class="item" data-itemid="1530" data-filetype="file" data-chapterid="317">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1530-preface.html" class="">
+                        1.1. 序言
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1531" data-filetype="file" data-chapterid="317">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1531-about-the-author.html" class="">
+                        1.2. 关于作者
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1532" data-filetype="file" data-chapterid="317">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1532-how-to-read-the-book-correctly.html" class="">
+                        1.3. 践行至上
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1533" data-filetype="file" data-chapterid="317">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1533-writing-agreement.html" class="">
+                        1.4. 写作约定
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1534" data-filetype="file" data-chapterid="317">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1534-issuance-of-instructions.html" class="">
+                        1.5. 发行说明
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1535" data-filetype="file" data-chapterid="317">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1535-the-source-code-of-this-book.html" class="">
+                        1.6. 本书源码
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1536" data-filetype="file" data-chapterid="317">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1536-feedback-error-correction.html" class="">
+                        1.7. 反馈纠错
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1537" data-filetype="file" data-chapterid="317">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1537-common-problem.html" class="">
+                        1.8. 常见问题
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+
+
+    <li class="item" data-itemid="318" data-filetype="chapter" data-chapterid="318">
+
+
+        <i class="blue folder icon"></i>
+
+            第二章. 舞台布置
+
+
+
+        <ol data-chapterid="318" class="chapter-container">
+                            <li class="item" data-itemid="1540" data-filetype="file" data-chapterid="318">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1540-development-environment.html" class="">
+                        2.1. 开发环境
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1544" data-filetype="file" data-chapterid="318">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1544-module-division.html" class="">
+                        2.2. 需求分析
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1672" data-filetype="file" data-chapterid="318">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1672-development-of-electric-business-project.html" class="">
+                        2.3. 开发思路
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1543" data-filetype="file" data-chapterid="318">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1543-create-applications.html" class="">
+                        2.4. 创建应用
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1579" data-filetype="file" data-chapterid="318">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1579-auxiliary-function.html" class="">
+                        2.5. 辅助函数
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1578" data-filetype="file" data-chapterid="318">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1578-basic-layout.html" class="">
+                        2.6. 基础布局
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1709" data-filetype="file" data-chapterid="318">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1709-summary.html" class="">
+                        2.7. 小结
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+
+
+    <li class="item" data-itemid="320" data-filetype="chapter" data-chapterid="320">
+
+
+        <i class="blue folder icon"></i>
+
+            第三章. 用户模块
+
+
+
+        <ol data-chapterid="320" class="chapter-container">
+                            <li class="item" data-itemid="1545" data-filetype="file" data-chapterid="320">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1545-registration-and-login.html" class="">
+                        3.1. 注册与登录
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1546" data-filetype="file" data-chapterid="320">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1546-verifying-mailbox.html" class="">
+                        3.2. 验证邮箱（上）
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1584" data-filetype="file" data-chapterid="320">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1584-verification-mailbox-below.html" class="">
+                        3.3. 验证邮箱（下）
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1565" data-filetype="file" data-chapterid="320">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1565-exceptions.html" class="">
+                        3.4. 优雅地处理异常
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1547" data-filetype="file" data-chapterid="320">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1547-list-of-receiving-addresses.html" class="">
+                        3.5. 收货地址列表
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1585" data-filetype="file" data-chapterid="320">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1585-new-receiving-address.html" class="">
+                        3.6. 新建收货地址
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1586" data-filetype="file" data-chapterid="320">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1586-modifying-and-deleting-the-receiving-address.html" class="">
+                        3.7. 修改和删除收货地址
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1710" data-filetype="file" data-chapterid="320">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1710-summary.html" class="">
+                        3.8. 小结
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+
+
+    <li class="item" data-itemid="325" data-filetype="chapter" data-chapterid="325">
+
+
+        <i class="blue folder icon"></i>
+
+            第四章. 管理后台
+
+
+
+        <ol data-chapterid="325" class="chapter-container">
+                            <li class="item" data-itemid="1568" data-filetype="file" data-chapterid="325">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1568-install-the-encorelaravel-admin-extension-package.html" class="">
+                        4.1. 安装 laravel-admin 扩展包
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1588" data-filetype="file" data-chapterid="325">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1588-user-list.html" class="">
+                        4.2. 用户列表
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1589" data-filetype="file" data-chapterid="325">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1589-permissions-settings.html" class="">
+                        4.3. 权限设置
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1711" data-filetype="file" data-chapterid="325">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1711-summary.html" class="">
+                        4.4. 小结
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+
+
+    <li class="item" data-itemid="321" data-filetype="chapter" data-chapterid="321">
+
+
+        <i class="blue folder icon"></i>
+
+            第五章. 商品模块
+
+
+
+        <ol data-chapterid="321" class="chapter-container">
+                            <li class="item" data-itemid="1746" data-filetype="file" data-chapterid="321">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1746-product-model.html" class="">
+                        5.1. 商品的数据结构设计
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1552" data-filetype="file" data-chapterid="321">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1552-list-of-goods.html" class="">
+                        5.2. 后台商品列表
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1551" data-filetype="file" data-chapterid="321">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1551-managing-the-background-create-and-edit-goods.html" class="">
+                        5.3. 后台创建和编辑商品
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1559" data-filetype="file" data-chapterid="321">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1559-user-interface-a-list-of-goods.html" class="">
+                        5.4. 商品列表页面
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1660" data-filetype="file" data-chapterid="321">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1660-commodity-screening-and-sorting.html" class="">
+                        5.5. 商品筛选、排序
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1595" data-filetype="file" data-chapterid="321">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1595-user-interface-commodity-details-page.html" class="">
+                        5.6. 商品详情页
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1562" data-filetype="file" data-chapterid="321">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1562-collection-of-goods.html" class="">
+                        5.7. 收藏商品
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1596" data-filetype="file" data-chapterid="321">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1596-user-interface-collection-of-goods-list.html" class="">
+                        5.8. 收藏商品列表
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1712" data-filetype="file" data-chapterid="321">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1712-summary.html" class="">
+                        5.9. 小结
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+
+
+    <li class="item" data-itemid="322" data-filetype="chapter" data-chapterid="322">
+
+
+        <i class="blue folder icon"></i>
+
+            第六章. 购物车 &amp; 订单模块
+
+
+
+        <ol data-chapterid="322" class="chapter-container">
+                            <li class="item" data-itemid="1557" data-filetype="file" data-chapterid="322">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1557-add-goods-to-a-shopping-cart.html" class="">
+                        6.1. 添加商品到购物车
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1664" data-filetype="file" data-chapterid="322">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1664-look-at-the-shopping-cart.html" class="">
+                        6.2. 查看购物车
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1558" data-filetype="file" data-chapterid="322">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1558-create-an-order.html" class="">
+                        6.3. 订单的数据模型
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1703" data-filetype="file" data-chapterid="322">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1703-shopping-cart-under-a-single-page.html" class="">
+                        6.4. 购物车下单页面
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1667" data-filetype="file" data-chapterid="322">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1667-closing-the-unpaid-order.html" class="">
+                        6.5. 关闭未支付订单
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1560" data-filetype="file" data-chapterid="322">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1560-user-interface-order-list.html" class="">
+                        6.6. 用户订单列表
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1669" data-filetype="file" data-chapterid="322">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1669-user-interface-order-details-page.html" class="">
+                        6.7. 用户订单详情页
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1748" data-filetype="file" data-chapterid="322">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1748-encapsulation-business-code.html" class="">
+                        6.8. 封装业务代码
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1714" data-filetype="file" data-chapterid="322">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1714-summary.html" class="">
+                        6.9. 小结
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+
+
+    <li class="item" data-itemid="326" data-filetype="chapter" data-chapterid="326">
+
+
+        <i class="blue folder icon"></i>
+
+            第七章. 支付模块
+
+
+
+        <ol data-chapterid="326" class="chapter-container">
+                            <li class="item" data-itemid="1567" data-filetype="file" data-chapterid="326">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1567-install-the-extension-package-yansongda-pay.html" class="">
+                        7.1. 安装扩展包 yansongda/pay
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1549" data-filetype="file" data-chapterid="326">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1549-alipay-to-pay.html" class="">
+                        7.2. 集成支付宝
+
+
+                                    <span class="ui left pointing orange basic label">
+                        上次阅读
+                    </span>
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1704" data-filetype="file" data-chapterid="326">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1704-order-payment.html" class="">
+                        7.3. 订单的支付宝支付
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1550" data-filetype="file" data-chapterid="326">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1550-wechat-payment.html" class="">
+                        7.4. 集成微信支付
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1705" data-filetype="file" data-chapterid="326">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1705-wechat-payment-for-order.html" class="">
+                        7.5. 订单的微信支付
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1602" data-filetype="file" data-chapterid="326">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1602-perfect-the-logic-after-payment.html" class="">
+                        7.6. 完善支付后逻辑
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1715" data-filetype="file" data-chapterid="326">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1715-summary.html" class="">
+                        7.7. 小结
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+
+
+    <li class="item" data-itemid="327" data-filetype="chapter" data-chapterid="327">
+
+
+        <i class="blue folder icon"></i>
+
+            第八章. 完善订单模块
+
+
+
+        <ol data-chapterid="327" class="chapter-container">
+                            <li class="item" data-itemid="1561" data-filetype="file" data-chapterid="327">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1561-management-backstage-order-list.html" class="">
+                        8.1. 管理后台 - 订单列表
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1675" data-filetype="file" data-chapterid="327">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1675-management-backstage-order-details.html" class="">
+                        8.2. 管理后台 - 订单详情
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1555" data-filetype="file" data-chapterid="327">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1555-delivery-and-confirmation-of-receipt.html" class="">
+                        8.3. 管理后台 - 订单发货
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1676" data-filetype="file" data-chapterid="327">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1676-user-interface-confirm-receipt.html" class="">
+                        8.4. 用户界面 - 确认收货
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1630" data-filetype="file" data-chapterid="327">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1630-evaluation-of-goods.html" class="">
+                        8.5. 评价商品
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1556" data-filetype="file" data-chapterid="327">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1556-user-interface-application-refund.html" class="">
+                        8.6. 用户界面 - 申请退款
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1677" data-filetype="file" data-chapterid="327">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1677-managing-backstage-processing-refunds.html" class="">
+                        8.7. 管理后台 - 拒绝退款
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1679" data-filetype="file" data-chapterid="327">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1679-admin-agreed-to-refund-alipay.html" class="">
+                        8.8. 管理后台 - 同意退款（支付宝）
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1680" data-filetype="file" data-chapterid="327">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1680-management-backstage-approval-of-a-refund-wechat.html" class="">
+                        8.9. 管理后台 - 同意退款（微信）
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1716" data-filetype="file" data-chapterid="327">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1716-summary.html" class="">
+                        8.10. 小结
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+
+
+    <li class="item" data-itemid="334" data-filetype="chapter" data-chapterid="334">
+
+
+        <i class="blue folder icon"></i>
+
+            第九章. 优惠券模块
+
+
+
+        <ol data-chapterid="334" class="chapter-container">
+                            <li class="item" data-itemid="1681" data-filetype="file" data-chapterid="334">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1681-management-backstage-coupon-management.html" class="">
+                        9.1. 管理后台 - 优惠券列表
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1682" data-filetype="file" data-chapterid="334">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1682-manage-the-backstage-add-and-edit-coupons.html" class="">
+                        9.2. 管理后台 - 添加、修改、删除优惠券
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1683" data-filetype="file" data-chapterid="334">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1683-user-interface-use-coupons.html" class="">
+                        9.3. 用户界面 - 检查优惠券
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1684" data-filetype="file" data-chapterid="334">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1684-user-interface-using-coupons.html" class="">
+                        9.4. 用户界面 - 使用优惠券下单
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1707" data-filetype="file" data-chapterid="334">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1707-optimizes-the-coupon-module.html" class="">
+                        9.5. 优化优惠券模块
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1718" data-filetype="file" data-chapterid="334">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1718-summary.html" class="">
+                        9.6. 小结
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+
+
+    <li class="item" data-itemid="335" data-filetype="chapter" data-chapterid="335">
+
+
+        <i class="blue folder icon"></i>
+
+            第十章. 杂项
+
+
+
+        <ol data-chapterid="335" class="chapter-container">
+                            <li class="item" data-itemid="1685" data-filetype="file" data-chapterid="335">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1685-configure-the-background-permissions.html" class="">
+                        10.1. 配置后台权限
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1687" data-filetype="file" data-chapterid="335">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1687-perfect-false-data-filling.html" class="">
+                        10.2. 完善假数据填充
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1708" data-filetype="file" data-chapterid="335">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1708-back-up-management-of-backstage-data.html" class="">
+                        10.3. 备份管理后台数据
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1717" data-filetype="file" data-chapterid="335">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1717-system-safety.html" class="">
+                        10.4. 系统安全
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1721" data-filetype="file" data-chapterid="335">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1721-summary.html" class="">
+                        10.5. 小结
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+
+
+    <li class="item" data-itemid="347" data-filetype="chapter" data-chapterid="347">
+
+
+        <i class="blue folder icon"></i>
+
+            第十一章. 附录
+
+
+
+        <ol data-chapterid="347" class="chapter-container">
+                            <li class="item" data-itemid="1747" data-filetype="file" data-chapterid="347">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1747-summary.html" class="">
+                        11.1. 全书总结
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="2023" data-filetype="file" data-chapterid="347">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="2023-ecommerce-advance.html" class="">
+                        11.2. 电商进阶课程
+
+
+
+
+
+                                    <span class="ui left  green basic label">免费</span>
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1719" data-filetype="file" data-chapterid="347">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1719-the-next-step-of-learning.html" class="">
+                        11.3. 下一步学习建议
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+
+
+    <li class="item" data-itemid="1720" data-filetype="file" data-chapterid="347">
+
+        <i class="grey file text outline icon"></i>
+
+
+            <a href="1720-work-sharing-and-learning.html" class="">
+                        11.4. 作品分享和学习感悟
+
+
+
+
+
+
+            </a>
+
+
+
+
+    </li>
+
+                    </ol>
+    </li>
+
+                    </ol>
+
+        </div>
+      </div>
+    </div>
+</div>        </div>
+
+        </div>
+
+
+
+
+    <!-- Scripts -->
+    <script src="./app.js"></script>
+
+    <script>
+        $(document).ready(function()
+        {
+                            $('.user-has-done-btn').api({
+                    method : 'POST',
+                    url: 'https://laravel-china.org/courses/has_done/{act}',
+                    data: {
+                      '_token': Config.token
+                    },
+                });
+                    });
+    </script>
+
+            <script>
+        // Baidu link submit
+        (function(){
+            if(typeof is_private_view_only === "undefined"){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            }
+        })();
+        </script>
+
+        <script>
+</script>
+
+
+<script>
+
+    $(document).ready(function()
+    {
+        $("li.item").hover(function(){
+            $(this).find('.operation').show();
+        },function(){
+            $(this).find('.operation').hide();
+        });
+
+        $(document).on('click', '.create-chapter-btn', function () {
+
+            swal({
+              title: "新建章节",
+              text: "请添加章节名称：",
+              input: 'text',
+              showCancelButton: true,
+              confirmButtonText: '创建',
+              cancelButtonText: '取消',
+              inputValidator: function (value) {
+                return new Promise(function (resolve, reject) {
+                  if (value) {
+                    resolve()
+                  } else {
+                    reject('章节名称不能为空！')
+                  }
+                })
+              }
+            }).then(function (result) {
+                swal.showLoading();
+                $.ajax({
+                    'url': 'https://laravel-china.org/courses/chapters',
+                    'type': 'POST',
+                    'data': {
+                        '_token': Config.token,
+                        'name': result,
+                        'chapter_id': 0,
+                        'book_id': 41
+                    },
+                    'success': function(data) {
+                        location.reload();
+                    },
+                    'error': function(){
+                        swal.hideLoading();
+                        swal({
+                          title: 'Error!',
+                          text: '有错误发生！',
+                          type: 'error',
+                          confirmButtonText: '知道了'
+                        })
+                    }
+                });
+            }).catch(swal.noop);
+
+        });
+    });
+
+
+</script>
+
+</body>
+</html>

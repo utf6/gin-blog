@@ -1,0 +1,1741 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="baidu-site-verification" content="MfC8ppEukL">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS">
+
+    <title>3.6. 新建收货地址 | 《L05 Laravel 教程 - 电商实战》 | Laravel 实战教程
+</title>
+
+    <meta name="author" content="Summer">
+    <meta name="description" content="新增收货地址页面 接下来我们要做的是新增收货地址的页面。 在 UserAddressesController 中新增一个 create() 方法： app/Http/Controllers/UserAddressesController.php use App\Models\UserAddress; . . .     pub...
+">
+    <meta name="keywords" content="laravel教程,laravel书籍,laravel入门,laravel示例,laravel课程,laravel培训,php教程,php书籍">
+
+    <link rel="shortcut icon" href="uploads/sites/KDiyAbV0hj1ytHpRTOlVpucbLebonxeX.png">
+
+    <!-- Styles -->
+    <link href="./app.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {"csrfToken":"Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS"}    </script>
+
+    <script>
+        window.Config = {
+            'user_id': 7863,
+            'request_interval': 50000, // 消息通知检测周期
+            'notification_count': 0,
+            'token': 'Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS',
+            'environment': 'production',
+            'url': 'https://laravel-china.org',
+            'routes': {
+                'notificationsCount' : 'https://laravel-china.org/notifications/count',
+                'upload_image' : 'https://laravel-china.org/courses/upload_image',
+                'api_search' : 'https://laravel-china.org/courses/api_search'
+            },
+            'cdnDomain': 'https://laravel-china.org/',
+            'following_users': [],
+            'search_type': 'standard',
+            'book_id': 41,
+            'is_docs': "no",
+            'article_id': 1585,
+        };
+
+        var ShowCrxHint = 'no';
+    </script>
+
+    <style>
+
+        .ui.top.menu {
+            border-top: 4px solid #f46660;
+        }
+
+        .ui.fluid.search .results {
+            width: 550px;
+        }
+
+        @media  only screen and (max-width: 767px) {
+            .ui.top.menu > .ui.container {
+                height: 52px;
+                flex-direction: initial;
+            }
+        }
+
+
+    </style>
+
+        </head>
+<body class=" books-articles-show-page">
+
+                        <div class="ui vertical sidebar menu left" style="z-index: 99999">
+    <div class="item">
+        <b>L05 Laravel 教程 - 电商实战</b>
+    </div>
+
+
+
+        <div class="item">
+            <div class="header">
+                                    第一章. 基础信息
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1530" href="1530-preface.html">
+
+                                                    1.1. 序言
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1531" href="1531-about-the-author.html">
+
+                                                    1.2. 关于作者
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1532" href="1532-how-to-read-the-book-correctly.html">
+
+                                                    1.3. 践行至上
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1533" href="1533-writing-agreement.html">
+
+                                                    1.4. 写作约定
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1534" href="1534-issuance-of-instructions.html">
+
+                                                    1.5. 发行说明
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1535" href="1535-the-source-code-of-this-book.html">
+
+                                                    1.6. 本书源码
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1536" href="1536-feedback-error-correction.html">
+
+                                                    1.7. 反馈纠错
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1537" href="1537-common-problem.html">
+
+                                                    1.8. 常见问题
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第二章. 舞台布置
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1540" href="1540-development-environment.html">
+
+                                                    2.1. 开发环境
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1544" href="1544-module-division.html">
+
+                                                    2.2. 需求分析
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1672" href="1672-development-of-electric-business-project.html">
+
+                                                    2.3. 开发思路
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1543" href="1543-create-applications.html">
+
+                                                    2.4. 创建应用
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1579" href="1579-auxiliary-function.html">
+
+                                                    2.5. 辅助函数
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1578" href="1578-basic-layout.html">
+
+                                                    2.6. 基础布局
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1709" href="1709-summary.html">
+
+                                                    2.7. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第三章. 用户模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1545" href="1545-registration-and-login.html">
+
+                                                    3.1. 注册与登录
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1546" href="1546-verifying-mailbox.html">
+
+                                                    3.2. 验证邮箱（上）
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1584" href="1584-verification-mailbox-below.html">
+
+                                                    3.3. 验证邮箱（下）
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1565" href="1565-exceptions.html">
+
+                                                    3.4. 优雅地处理异常
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1547" href="1547-list-of-receiving-addresses.html">
+
+                                                    3.5. 收货地址列表
+                                            </a>
+
+
+
+
+
+                    <a class="item active article-position-1585" href="1585-new-receiving-address.html">
+
+                                                    3.6. 新建收货地址
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1586" href="1586-modifying-and-deleting-the-receiving-address.html">
+
+                                                    3.7. 修改和删除收货地址
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1710" href="1710-summary.html">
+
+                                                    3.8. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第四章. 管理后台
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1568" href="1568-install-the-encorelaravel-admin-extension-package.html">
+
+                                                    4.1. 安装 laravel-admin 扩展包
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1588" href="1588-user-list.html">
+
+                                                    4.2. 用户列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1589" href="1589-permissions-settings.html">
+
+                                                    4.3. 权限设置
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1711" href="1711-summary.html">
+
+                                                    4.4. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第五章. 商品模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1746" href="1746-product-model.html">
+
+                                                    5.1. 商品的数据结构设计
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1552" href="1552-list-of-goods.html">
+
+                                                    5.2. 后台商品列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1551" href="1551-managing-the-background-create-and-edit-goods.html">
+
+                                                    5.3. 后台创建和编辑商品
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1559" href="1559-user-interface-a-list-of-goods.html">
+
+                                                    5.4. 商品列表页面
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1660" href="1660-commodity-screening-and-sorting.html">
+
+                                                    5.5. 商品筛选、排序
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1595" href="1595-user-interface-commodity-details-page.html">
+
+                                                    5.6. 商品详情页
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1562" href="1562-collection-of-goods.html">
+
+                                                    5.7. 收藏商品
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1596" href="1596-user-interface-collection-of-goods-list.html">
+
+                                                    5.8. 收藏商品列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1712" href="1712-summary.html">
+
+                                                    5.9. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第六章. 购物车 &amp; 订单模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1557" href="1557-add-goods-to-a-shopping-cart.html">
+
+                                                    6.1. 添加商品到购物车
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1664" href="1664-look-at-the-shopping-cart.html">
+
+                                                    6.2. 查看购物车
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1558" href="1558-create-an-order.html">
+
+                                                    6.3. 订单的数据模型
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1703" href="1703-shopping-cart-under-a-single-page.html">
+
+                                                    6.4. 购物车下单页面
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1667" href="1667-closing-the-unpaid-order.html">
+
+                                                    6.5. 关闭未支付订单
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1560" href="1560-user-interface-order-list.html">
+
+                                                    6.6. 用户订单列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1669" href="1669-user-interface-order-details-page.html">
+
+                                                    6.7. 用户订单详情页
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1748" href="1748-encapsulation-business-code.html">
+
+                                                    6.8. 封装业务代码
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1714" href="1714-summary.html">
+
+                                                    6.9. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第七章. 支付模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1567" href="1567-install-the-extension-package-yansongda-pay.html">
+
+                                                    7.1. 安装扩展包 yansongda/pay
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1549" href="1549-alipay-to-pay.html">
+
+                                                    7.2. 集成支付宝
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1704" href="1704-order-payment.html">
+
+                                                    7.3. 订单的支付宝支付
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1550" href="1550-wechat-payment.html">
+
+                                                    7.4. 集成微信支付
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1705" href="1705-wechat-payment-for-order.html">
+
+                                                    7.5. 订单的微信支付
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1602" href="1602-perfect-the-logic-after-payment.html">
+
+                                                    7.6. 完善支付后逻辑
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1715" href="1715-summary.html">
+
+                                                    7.7. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第八章. 完善订单模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1561" href="1561-management-backstage-order-list.html">
+
+                                                    8.1. 管理后台 - 订单列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1675" href="1675-management-backstage-order-details.html">
+
+                                                    8.2. 管理后台 - 订单详情
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1555" href="1555-delivery-and-confirmation-of-receipt.html">
+
+                                                    8.3. 管理后台 - 订单发货
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1676" href="1676-user-interface-confirm-receipt.html">
+
+                                                    8.4. 用户界面 - 确认收货
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1630" href="1630-evaluation-of-goods.html">
+
+                                                    8.5. 评价商品
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1556" href="1556-user-interface-application-refund.html">
+
+                                                    8.6. 用户界面 - 申请退款
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1677" href="1677-managing-backstage-processing-refunds.html">
+
+                                                    8.7. 管理后台 - 拒绝退款
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1679" href="1679-admin-agreed-to-refund-alipay.html">
+
+                                                    8.8. 管理后台 - 同意退款（支付宝）
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1680" href="1680-management-backstage-approval-of-a-refund-wechat.html">
+
+                                                    8.9. 管理后台 - 同意退款（微信）
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1716" href="1716-summary.html">
+
+                                                    8.10. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第九章. 优惠券模块
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1681" href="1681-management-backstage-coupon-management.html">
+
+                                                    9.1. 管理后台 - 优惠券列表
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1682" href="1682-manage-the-backstage-add-and-edit-coupons.html">
+
+                                                    9.2. 管理后台 - 添加、修改、删除优惠券
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1683" href="1683-user-interface-use-coupons.html">
+
+                                                    9.3. 用户界面 - 检查优惠券
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1684" href="1684-user-interface-using-coupons.html">
+
+                                                    9.4. 用户界面 - 使用优惠券下单
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1707" href="1707-optimizes-the-coupon-module.html">
+
+                                                    9.5. 优化优惠券模块
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1718" href="1718-summary.html">
+
+                                                    9.6. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第十章. 杂项
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1685" href="1685-configure-the-background-permissions.html">
+
+                                                    10.1. 配置后台权限
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1687" href="1687-perfect-false-data-filling.html">
+
+                                                    10.2. 完善假数据填充
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1708" href="1708-back-up-management-of-backstage-data.html">
+
+                                                    10.3. 备份管理后台数据
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1717" href="1717-system-safety.html">
+
+                                                    10.4. 系统安全
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1721" href="1721-summary.html">
+
+                                                    10.5. 小结
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="header">
+                                    第十一章. 附录
+                            </div>
+
+            <div class="menu article">
+
+
+                    <a class="item  article-position-1747" href="1747-summary.html">
+
+                                                    11.1. 全书总结
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-2023" href="2023-ecommerce-advance.html">
+
+                                                    11.2. 电商进阶课程
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1719" href="1719-the-next-step-of-learning.html">
+
+                                                    11.3. 下一步学习建议
+                                            </a>
+
+
+
+
+
+                    <a class="item  article-position-1720" href="1720-work-sharing-and-learning.html">
+
+                                                    11.4. 作品分享和学习感悟
+                                            </a>
+
+
+
+                            </div>
+        </div>
+
+</div>
+
+    <div class="ui basic teal  launch right attached fixed button" id="right-menu-btn">
+        <i class="content icon"></i>
+        <span class="text">Menu</span>
+    </div>
+
+    <div class="ui top menu sidebar stackable">
+    <a href="topics" class="item no-pjax">社区</a>
+<a href="docs" class="item no-pjax">文档</a>
+<a href="c/qa" class="item">问答</a>
+
+<a href="c/php-jobs" class="item">工作</a>
+
+<div class="ui fluid category search item">
+<div class="ui icon input">
+<input class="prompt" type="text" placeholder="">
+<i class="search icon"></i>
+</div>
+<div class="results"></div>
+</div>
+
+
+
+            <a class="ui item" href="courses/my/referrals">
+                        <i class="icon gift"></i> 邀请好友
+        </a>
+
+    <a class="item" href="courses/histories" title="浏览历史">
+
+
+        <i class="ui icon history grey middle disabled"></i> 浏览历史
+    </a>
+
+    <a class="item" href="notifications/unread" title="消息通知">
+        <span class="ui basic circular label notification" id="notification-count">
+            0
+        </span>
+    </a>
+
+    <a href="users/7863" class="item">
+        <img class="ui avatar image" src="uploads/avatars/7863_1518282225.jpg?imageView2/1/w/100/h/100">  
+        冷暖自知
+    </a>
+
+    <a href="courses/my/coupons" class="item">
+        <i class="icon payment"></i>
+            卡券中心
+    </a>
+
+    <form id="logout-form" action="https://laravel-china.org/logout" method="POST" style="display: none;">
+        <input type="hidden" name="_token" value="Px0sYrB7p9zEUR5jm34VeyfMBrPhowR4aILUg8fS">
+    </form>
+</div>
+
+
+    <div class="pusher">
+
+        <div class="main container">
+
+            <script type="text/javascript">
+        Config.search_type = 'category';
+    </script>
+
+
+    <div class="ui centered grid container stackable">
+
+        <div class="twelve wide column">
+
+
+            <div class="ui segment article-content">
+
+
+                <div class="extra-padding">
+
+                    <h1>
+                        <i class="grey file text outline icon"></i>
+                        <span style="line-height: 34px;">3.6. 新建收货地址 </span>
+
+
+                        <div class="pull-right">
+
+        <div class="ui labeled button tiny">
+
+          <div class="ui compact button tiny kb-star basic " data-act="star" data-id="1585">
+
+            <i class="thumbs up icon"></i> <span class="state">点赞</span>
+          </div>
+          <a class="ui basic label star_count">21</a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+                    </h1>
+
+                                            <p class="book-article-meta">
+
+        <a href="courses/laravel-shop"><i class="icon book"></i> L05 Laravel 教程 - 电商实战</a>
+
+        <span class="divider">/</span>
+
+        <span class="relative clicked-hide-guide">
+                        <a class="chapter-title user-has-done-btn" data-act="chapter_sidebar_clicked" href="javascript:void(0);"><i class="icon map signs"></i> 第三章. 用户模块</a>
+        </span>
+    </p>
+
+
+
+
+                    <div class="ui divider"></div>
+
+                    <div class="ui readme markdown-body content-body">
+
+
+
+
+
+                            <h2>新增收货地址页面</h2>
+<p>接下来我们要做的是新增收货地址的页面。</p>
+<p>在 <code>UserAddressesController</code> 中新增一个 <code>create()</code> 方法：</p>
+<p><em>app/Http/Controllers/UserAddressesController.php</em></p>
+<pre><code class=" language-php">use App\Models\UserAddress;
+.
+.
+.
+    public function create()
+    {
+        return view('user_addresses.create_and_edit', ['address' =&gt; new UserAddress()]);
+    }
+.
+.
+.</code></pre>
+<blockquote>
+<p>由于新增页面和编辑页面比较类似，所以共用一个模板文件 <code>create_and_edit</code>。</p>
+</blockquote>
+<p>然后添加一个路由：</p>
+<p><em>routes/web.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+Route::group(['middleware' =&gt; 'auth'], function() {
+    .
+    .
+    .
+    Route::group(['middleware' =&gt; 'email_verified'], function() {
+        Route::get('user_addresses', 'UserAddressesController@index')-&gt;name('user_addresses.index');
+        Route::get('user_addresses/create', 'UserAddressesController@create')-&gt;name('user_addresses.create');
+    });
+});</code></pre>
+<h2>1. 省市区联动组件</h2>
+<p>收货地址一个核心功能就是省市区三级联动下拉，这是一个比较复杂的前端操作，我们这里使用 Vue 来实现。</p>
+<p>首先我们添加一个中国省市区的库：</p>
+<pre><code class=" language-php">$ yarn add china-area-data</code></pre>
+<p>这个 nodejs 库包含了（基本上）最新的中国省市区的数据，通过类似邮编的方式将上下级关联起来，具体数据结构可以参考这个<a href="airyland/china-area-data/blob/master/v3/data.js">代码文件</a></p>
+<p>接下来创建一个 Vue 的组件</p>
+<pre><code class=" language-php">$ touch resources/assets/js/components/SelectDistrict.js</code></pre>
+<p><em>resources/assets/js/components/SelectDistrict.js</em></p>
+<pre><code class=" language-php">// 从刚刚安装的库中加载数据
+const addressData = require('china-area-data/v3/data');
+// 引入 lodash，lodash 是一个实用工具库，提供了很多常用的方法
+import _ from 'lodash';
+
+// 注册一个名为 select-district 的 Vue 组件
+Vue.component('select-district', {
+  // 定义组件的属性
+  props: {
+    // 用来初始化省市区的值，在编辑时会用到
+    initValue: {
+      type: Array, // 格式是数组
+      default: () =&gt; ([]), // 默认是个空数组
+    }
+  },
+  // 定义了这个组件内的数据
+  data() {
+    return {
+      provinces: addressData['86'], // 省列表
+      cities: {}, // 城市列表
+      districts: {}, // 地区列表
+      provinceId: '', // 当前选中的省
+      cityId: '', // 当前选中的市
+      districtId: '', // 当前选中的区
+    };
+  },
+  // 定义观察器，对应属性变更时会触发对应的观察器函数
+  watch: {
+    // 当选择的省发生改变时触发
+    provinceId(newVal) {
+      if (!newVal) {
+        this.cities = {};
+        this.cityId = '';
+        return;
+      }
+      // 将城市列表设为当前省下的城市
+      this.cities = addressData[newVal];
+      // 如果当前选中的城市不在当前省下，则将选中城市清空
+      if (!this.cities[this.cityId]) {
+        this.cityId = '';
+      }
+    },
+    // 当选择的市发生改变时触发
+    cityId(newVal) {
+      if (!newVal) {
+        this.districts = {};
+        this.districtId = '';
+        return;
+      }
+      // 将地区列表设为当前城市下的地区
+      this.districts = addressData[newVal];
+      // 如果当前选中的地区不在当前城市下，则将选中地区清空
+      if (!this.districts[this.districtId]) {
+        this.districtId = '';
+      }
+    },
+    // 当选择的区发生改变时触发
+    districtId() {
+      // 触发一个名为 change 的 Vue 事件，事件的值就是当前选中的省市区名称，格式为数组
+      this.$emit('change', [this.provinces[this.provinceId], this.cities[this.cityId], this.districts[this.districtId]]);
+    },
+  },
+  // 组件初始化时会调用这个方法
+  created() {
+    this.setFromValue(this.initValue);
+  },
+  methods: {
+    //
+    setFromValue(value) {
+      // 过滤掉空值
+      value = _.filter(value);
+      // 如果数组长度为0，则将省清空（由于我们定义了观察器，会联动触发将城市和地区清空）
+      if (value.length === 0) {
+        this.provinceId = '';
+        return;
+      }
+      // 从当前省列表中找到与数组第一个元素同名的项的索引
+      const provinceId = _.findKey(this.provinces, o =&gt; o === value[0]);
+      // 没找到，清空省的值
+      if (!provinceId) {
+        this.provinceId = '';
+        return;
+      }
+      // 找到了，将当前省设置成对应的ID
+      this.provinceId = provinceId;
+      // 由于观察器的作用，这个时候城市列表已经变成了对应省的城市列表
+      // 从当前城市列表找到与数组第二个元素同名的项的索引
+      const cityId = _.findKey(addressData[provinceId], o =&gt; o === value[1]);
+      // 没找到，清空城市的值
+      if (!cityId) {
+        this.cityId = '';
+        return;
+      }
+      // 找到了，将当前城市设置成对应的ID
+      this.cityId = cityId;
+      // 由于观察器的作用，这个时候地区列表已经变成了对应城市的地区列表
+      // 从当前地区列表找到与数组第三个元素同名的项的索引
+      const districtId = _.findKey(addressData[cityId], o =&gt; o === value[2]);
+      // 没找到，清空地区的值
+      if (!districtId) {
+        this.districtId = '';
+        return;
+      }
+      // 找到了，将当前地区设置成对应的ID
+      this.districtId = districtId;
+    }
+  }
+});</code></pre>
+<p>最后在 <code>app.js</code> 中引入这个组件：</p>
+<p><em>resources/assets/js/app.js</em></p>
+<pre><code class=" language-php">.
+.
+.
+// 此处需在引入 Vue 之后引入
+require('./components/SelectDistrict');
+
+const app = new Vue({
+    el: '#app'
+});</code></pre>
+<blockquote>
+<p>本小节涉及到较多的 Vue / JS 知识，本课程的核心是 Laravel / PHP 的高级应用，因此不会太过详细解释每一个 Vue / JS 相关的知识点，有兴趣深入学习 Vue.js 的同学推荐学习下 Summer 的实战课程 ——  <a href="topics/12298/vuejs">《Vue.js 实战教程 - 基础篇》</a>，可以为你节省很多时间。</p>
+</blockquote>
+<h2>2. 模板页面</h2>
+<p>接下来我们把刚才的 Vue 组件放到模板中：</p>
+<pre><code class=" language-php">$ touch resources/views/user_addresses/create_and_edit.blade.php</code></pre>
+<p><em>resources/views/user_addresses/create_and_edit.blade.php</em></p>
+<pre><code class=" language-php">@extends('layouts.app')
+@section('title', '新增收货地址')
+
+@section('content')
+&lt;div class="row"&gt;
+&lt;div class="col-lg-10 col-lg-offset-1"&gt;
+&lt;div class="panel panel-default"&gt;
+  &lt;div class="panel-heading"&gt;
+    &lt;h2 class="text-center"&gt;
+      新增收货地址
+    &lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class="panel-body"&gt;
+    &lt;form class="form-horizontal" role="form"&gt;
+      &lt;!-- inline-template 代表通过内联方式引入组件 --&gt;
+      &lt;select-district inline-template&gt;
+        &lt;div class="form-group"&gt;
+          &lt;label class="control-label col-sm-2"&gt;省市区&lt;/label&gt;
+          &lt;div class="col-sm-3"&gt;
+            &lt;select class="form-control" v-model="provinceId"&gt;
+              &lt;option value=""&gt;选择省&lt;/option&gt;
+              &lt;option v-for="(name, id) in provinces" :value="id"&gt;@{{ name }}&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class="col-sm-3"&gt;
+            &lt;select class="form-control" v-model="cityId"&gt;
+              &lt;option value=""&gt;选择市&lt;/option&gt;
+              &lt;option v-for="(name, id) in cities" :value="id"&gt;@{{ name }}&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class="col-sm-3"&gt;
+            &lt;select class="form-control" v-model="districtId"&gt;
+              &lt;option value=""&gt;选择区&lt;/option&gt;
+              &lt;option v-for="(name, id) in districts" :value="id"&gt;@{{ name }}&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/select-district&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+@endsection</code></pre>
+<p>注意看 <code>&lt;select-district inline-template&gt;</code> 这一行，<code>select-district</code> 就是我们的组件名称，之前在 JS 代码里通过 <code>Vue.component('select-district', { /****/ })</code> 定义的。<code>inline-template</code> 则代表被 <code>&lt;select-district inline-template&gt;&lt;/select-district&gt;</code> 包裹的代码会作为这个组件的模板，也称为 <code>内联模板</code>。</p>
+<blockquote>
+<p>注意：<code>$ npm run watch-poll</code> 要一直保持运行</p>
+</blockquote>
+<p>现在访问一下页面看看效果： <a href="user_addresses/create">http://shop.test/user_addresses/create</a></p>
+<p><img src="uploads/images/201806/01/5320/YVikNiKGck.gif?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>接下来我们需要把省市区组件的数据放到表单里提交给后端，创建一个新的 Vue 组件来监听 <code>select-district</code> 的 <code>change</code> 事件：</p>
+<pre><code class=" language-php">$ touch resources/assets/js/components/UserAddressesCreateAndEdit.js</code></pre>
+<p><em>resources/assets/js/components/UserAddressesCreateAndEdit.js</em></p>
+<pre><code class=" language-php">// 注册一个名为 user-addresses-create-and-edit 的组件
+Vue.component('user-addresses-create-and-edit', {
+  // 组件的数据
+  data() {
+    return {
+      province: '', // 省
+      city: '', // 市
+      district: '', // 区
+    }
+  },
+  methods: {
+    // 把参数 val 中的值保存到组件的数据中
+    onDistrictChanged(val) {
+      if (val.length === 3) {
+        this.province = val[0];
+        this.city = val[1];
+        this.district = val[2];
+      }
+    }
+  }
+});</code></pre>
+<p>其中 <code>onDistrictChanged()</code> 方法将用于处理  <code>select-district</code> 组件抛出的 <code>change</code> 事件，把事件的数据复制到本组件中。</p>
+<p>最后在 <code>app.js</code> 中引入这个组件：</p>
+<p><em>resources/assets/js/app.js</em></p>
+<pre><code class=" language-php">.
+.
+.
+require('./components/SelectDistrict');
+require('./components/UserAddressesCreateAndEdit');
+.
+.
+.</code></pre>
+<p>下面把新组件也放到模板中：</p>
+<p><em>resources/views/user_addresses/create_and_edit.blade.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+@section('content')
+&lt;div class="row"&gt;
+&lt;div class="col-lg-10 col-lg-offset-1"&gt;
+&lt;div class="panel panel-default"&gt;
+  &lt;div class="panel-heading"&gt;
+    &lt;h2 class="text-center"&gt;
+      新增收货地址
+    &lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class="panel-body"&gt;
+    &lt;!-- 输出后端报错开始 --&gt;
+    @if (count($errors) &gt; 0)
+      &lt;div class="alert alert-danger"&gt;
+        &lt;h4&gt;有错误发生：&lt;/h4&gt;
+        &lt;ul&gt;
+          @foreach ($errors-&gt;all() as $error)
+            &lt;li&gt;&lt;i class="glyphicon glyphicon-remove"&gt;&lt;/i&gt; {{ $error }}&lt;/li&gt;
+          @endforeach
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    @endif
+    &lt;!-- 输出后端报错结束 --&gt;
+    &lt;!-- inline-template 代表通过内联方式引入组件 --&gt;
+    &lt;user-addresses-create-and-edit inline-template&gt;
+      &lt;form class="form-horizontal" role="form"&gt;
+        &lt;!-- 引入 csrf token 字段 --&gt;
+        {{ csrf_field() }}
+        &lt;!-- 注意这里多了 @change --&gt;
+        &lt;select-district @change="onDistrictChanged" inline-template&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label class="control-label col-sm-2"&gt;省市区&lt;/label&gt;
+            &lt;div class="col-sm-3"&gt;
+              &lt;select class="form-control" v-model="provinceId"&gt;
+                &lt;option value=""&gt;选择省&lt;/option&gt;
+                &lt;option v-for="(name, id) in provinces" :value="id"&gt;@{{ name }}&lt;/option&gt;
+              &lt;/select&gt;
+            &lt;/div&gt;
+            &lt;div class="col-sm-3"&gt;
+              &lt;select class="form-control" v-model="cityId"&gt;
+                &lt;option value=""&gt;选择市&lt;/option&gt;
+                &lt;option v-for="(name, id) in cities" :value="id"&gt;@{{ name }}&lt;/option&gt;
+              &lt;/select&gt;
+            &lt;/div&gt;
+            &lt;div class="col-sm-3"&gt;
+              &lt;select class="form-control" v-model="districtId"&gt;
+                &lt;option value=""&gt;选择区&lt;/option&gt;
+                &lt;option v-for="(name, id) in districts" :value="id"&gt;@{{ name }}&lt;/option&gt;
+              &lt;/select&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/select-district&gt;
+        &lt;!-- 插入了 3 个隐藏的字段 --&gt;
+        &lt;!-- 通过 v-model 与 user-addresses-create-and-edit 组件里的值关联起来 --&gt;
+        &lt;!-- 当组件中的值变化时，这里的值也会跟着变 --&gt;
+        &lt;input type="hidden" name="province" v-model="province"&gt;
+        &lt;input type="hidden" name="city" v-model="city"&gt;
+        &lt;input type="hidden" name="district" v-model="district"&gt;
+        &lt;div class="form-group"&gt;
+          &lt;label class="control-label col-sm-2"&gt;详细地址&lt;/label&gt;
+          &lt;div class="col-sm-9"&gt;
+            &lt;input type="text" class="form-control" name="address" value="{{ old('address', $address-&gt;address) }}"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+          &lt;label class="control-label col-sm-2"&gt;邮编&lt;/label&gt;
+          &lt;div class="col-sm-9"&gt;
+            &lt;input type="text" class="form-control" name="zip" value="{{ old('zip', $address-&gt;zip) }}"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+          &lt;label class="control-label col-sm-2"&gt;姓名&lt;/label&gt;
+          &lt;div class="col-sm-9"&gt;
+            &lt;input type="text" class="form-control" name="contact_name" value="{{ old('contact_name', $address-&gt;contact_name) }}"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+          &lt;label class="control-label col-sm-2"&gt;电话&lt;/label&gt;
+          &lt;div class="col-sm-9"&gt;
+            &lt;input type="text" class="form-control" name="contact_phone" value="{{ old('contact_phone', $address-&gt;contact_phone) }}"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group text-center"&gt;
+          &lt;button type="submit" class="btn btn-primary"&gt;提交&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/user-addresses-create-and-edit&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+@endsection</code></pre>
+<p>代码解析：</p>
+<ul>
+<li>
+<code>&lt;select-district @change="onDistrictChanged" inline-template&gt;</code> 可以看到比之前多了一个 <code>@change="onDistrictChanged"</code>，代表 <code>select-district</code> 的 <code>change</code> 事件将由 <code>onDistrictChanged</code> 这个方法来处理。</li>
+<li>当用户选择了省市区之后，触发了 <code>select-district</code> 组件的 <code>change</code> 事件，被 <code>user-addresses-create-and-edit</code> 的 <code>onDistrictChanged</code> 捕获之后就会更新 <code>user-addresses-create-and-edit</code> 组件内的数据，然后就映射到 3 个隐藏的 <code>input</code> 中去。</li>
+</ul>
+
+<p>再后面的代码就是很简单表单 Html，这里不再过多解释。</p>
+<p>刷新一下页面看看效果：</p>
+<p><img src="uploads/images/201806/01/5320/uHi1PRIRUE.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<h2>3. 提交表单</h2>
+<p>接下来要做的就是保存用户提交的数据，根据<a href="docs/laravel-specification/5.5/form-validation">编码规范</a>，我们需要在 <code>Request</code> 类中完成数据校验，我们先创建一个 <code>Request</code> 基类：</p>
+<pre><code class=" language-php">$ php artisan make:request Request</code></pre>
+<p><em>app/Http/Requests/Request.php</em></p>
+<pre><code class=" language-php">&lt;?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class Request extends FormRequest
+{
+    public function authorize()
+    {
+        return true;
+    }
+}</code></pre>
+<p>接下来创建 <code>UserAddressRequest</code> 类并继承 <code>Request</code> 基类：</p>
+<pre><code class=" language-php">$ php artisan make:request UserAddressRequest</code></pre>
+<p><em>app/Http/Requests/UserAddressRequest.php</em></p>
+<pre><code class=" language-php">&lt;?php
+
+namespace App\Http\Requests;
+
+class UserAddressRequest extends Request
+{
+    public function rules()
+    {
+        return [
+            'province'      =&gt; 'required',
+            'city'          =&gt; 'required',
+            'district'      =&gt; 'required',
+            'address'       =&gt; 'required',
+            'zip'           =&gt; 'required',
+            'contact_name'  =&gt; 'required',
+            'contact_phone' =&gt; 'required',
+        ];
+    }
+}</code></pre>
+<p>接下来在控制器中创建对应的方法：</p>
+<p><em>app/Http/Controllers/UserAddressesController.php</em></p>
+<pre><code class=" language-php">use App\Http\Requests\UserAddressRequest;
+.
+.
+.
+    public function store(UserAddressRequest $request)
+    {
+        $request-&gt;user()-&gt;addresses()-&gt;create($request-&gt;only([
+            'province',
+            'city',
+            'district',
+            'address',
+            'zip',
+            'contact_name',
+            'contact_phone',
+        ]));
+
+        return redirect()-&gt;route('user_addresses.index');
+    }
+.
+.
+.</code></pre>
+<ul>
+<li>Laravel 会自动调用 <code>UserAddressRequest</code> 中的 <code>rules()</code> 方法获取校验规则来对用户提交的数据进行校验，因此这里我们不需要手动调用 <code>$this-&gt;validate()</code> 方法。</li>
+<li>
+<code>$request-&gt;user()</code> 获取当前登录用户。</li>
+<li>
+<code>user()-&gt;addresses()</code> 获取当前用户与地址的<strong>关联关系</strong>（注意：这里并不是获取当前用户的地址列表）</li>
+<li>
+<code>addresses()-&gt;create()</code> 在关联关系里创建一个新的记录。</li>
+<li>
+<code>$request-&gt;only()</code>  通过白名单的方式从用户提交的数据里获取我们所需要的数据。</li>
+<li>
+<code>return redirect()-&gt;route('user_addresses.index');</code> 跳转回我们的地址列表页面。</li>
+</ul>
+
+<p>然后创建对应路由：</p>
+<p><em>routes/web.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+Route::group(['middleware' =&gt; 'auth'], function() {
+    .
+    .
+    .
+    Route::group(['middleware' =&gt; 'email_verified'], function() {
+        Route::get('user_addresses', 'UserAddressesController@index')-&gt;name('user_addresses.index');
+        Route::get('user_addresses/create', 'UserAddressesController@create')-&gt;name('user_addresses.create');
+        Route::post('user_addresses', 'UserAddressesController@store')-&gt;name('user_addresses.store');
+    });
+});</code></pre>
+<p>最后我们把这个路由放到前台表单的 <code>action</code> 属性里：</p>
+<p><em>resources/views/user_addresses/create_and_edit.blade.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+&lt;user-addresses-create-and-edit inline-template&gt;
+    &lt;form class="form-horizontal" role="form" action="{{ route('user_addresses.store') }}" method="post"&gt;
+.
+.
+.</code></pre>
+<p>刷新页面之后，我们可以试一下直接提交表单：</p>
+<p><img src="uploads/images/201806/01/5320/xR4CLGXOUa.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>可以看到 <code>UserAddressRequest</code> 类的验证规则是生效的。</p>
+<p>但是这个提示语言都是英文，对用户并不友好，我们需要改成中文：</p>
+<h2>4. 中文语言包</h2>
+<p>通过安装 <code>overtrue/laravel-lang</code> 这个扩展包可以直接把语言变成中文：</p>
+<pre><code class=" language-php">$ composer require overtrue/laravel-lang</code></pre>
+<p>然后修改系统语言，将原本的值 <code>en</code> 改成 <code>zh-CN</code>：</p>
+<p><em>config/app.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+'locale' =&gt; 'zh-CN',
+.
+.
+.</code></pre>
+<p>再看一下效果：</p>
+<p><img src="uploads/images/201806/01/5320/RLBf9VJyJm.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>可以看到大部分都已经是中文了，但是字段名称有部分还是英文，我们可以在 <code>UserAddressRequest</code> 类中定义 <code>attributes()</code> 方法来指定字段的名称：</p>
+<p><em>app/Http/Requests/UserAddressRequest.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+    public function attributes()
+    {
+        return [
+            'province'      =&gt; '省',
+            'city'          =&gt; '城市',
+            'district'      =&gt; '地区',
+            'address'       =&gt; '详细地址',
+            'zip'           =&gt; '邮编',
+            'contact_name'  =&gt; '姓名',
+            'contact_phone' =&gt; '电话',
+        ];
+    }</code></pre>
+<p>再次提交表单：</p>
+<p><img src="uploads/images/201806/01/5320/VZUXFLM1Bk.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>最后我们提交一个正常的表单：</p>
+<p><img src="uploads/images/201806/01/5320/5zweUw6A7h.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>提交之后页面自动跳转到收货地址列表页面：</p>
+<p><img src="uploads/images/201806/01/5320/KaUpxNBbDK.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<p>可以看到新添加的地址了。</p>
+<h2>5. 添加入口</h2>
+<p>接下来我们在收货地址列表页面添加一下这个页面的入口：</p>
+<p><em>resources/views/user_addresses/index.blade.php</em></p>
+<pre><code class=" language-php">.
+.
+.
+  &lt;div class="panel-heading"&gt;
+    收货地址列表
+    &lt;a href="{{ route('user_addresses.create') }}" class="pull-right"&gt;新增收货地址&lt;/a&gt;
+  &lt;/div&gt;
+.
+.
+.</code></pre>
+<p>进入收货地址列表页面看看效果：</p>
+<p><img src="uploads/images/201806/20/5320/TTF9gzvItI.png?imageView2/2/w/1240/h/0" alt="file"></p>
+<h2>Git 代码版本控制</h2>
+<p>接着让我们将这些文件加入到版本控制中：</p>
+<pre><code class=" language-php">$ git add -A
+$ git commit -m "新增收货地址"</code></pre>
+
+                            <p></p>
+<div style="position: absolute!important;height: 1px;width: 1px;overflow: hidden;clip: rect(1px,1px,1px,1px);">本文章首发在 <a href="https://laravel-china.org/">Laravel China 社区</a>
+</div>
+                                            </div>
+
+                </div>
+
+
+            </div>
+
+                            <div>
+                    <a class="ui basic button small  pull-left popover " data-content="3.5. 收货地址列表" href="1547-list-of-receiving-addresses.html"><i class="icon arrow left"></i> 上一篇</a>
+                    <a class="ui basic button small  pull-right popover " data-content="3.7. 修改和删除收货地址" href="1586-modifying-and-deleting-the-receiving-address.html">下一篇 <i class="icon arrow right"></i></a>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+        </div>
+
+
+
+
+    <!-- Scripts -->
+    <script src="./app.js"></script>
+
+    <script>
+        $(document).ready(function()
+        {
+                            $('.user-has-done-btn').api({
+                    method : 'POST',
+                    url: 'https://laravel-china.org/courses/has_done/{act}',
+                    data: {
+                      '_token': Config.token
+                    },
+                });
+                    });
+    </script>
+
+            <script>
+        // Baidu link submit
+        (function(){
+            if(typeof is_private_view_only === "undefined"){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            }
+        })();
+        </script>
+
+
+
+
+<script>
+    $(document).ready(function()
+    {
+        function changeStarState(that) {
+            if (that.data('act') == 'star') {
+                that.data('act', 'unstar');
+                that.find('.state').text('已点赞');
+            } else {
+                that.data('act', 'star');
+                that.find('.state').text('点赞');
+            }
+        }
+
+        $('.kb-star-big.button').api({
+            method : 'POST',
+            url: 'https://laravel-china.org/courses/articles/{id}/{act}',
+            data: {
+              '_token': Config.token
+            },
+            onSuccess: function(response) {
+                $('a.star_count').text(response.count);
+            }
+        }).state({
+            onActivate: function() {
+                changeStarState($('.kb-star.button'));
+                changeStarState($(this));
+                $('.kb-star-big.button').toggleClass('teal');
+            },
+            onDeactivate: function() {
+                changeStarState($('.kb-star.button'));
+                changeStarState($(this));
+                $('.kb-star-big.button').toggleClass('teal');
+            }
+        });
+
+        function changeWatchState(that) {
+            if (that.data('act') == 'watch') {
+                that.data('act', 'unwatch');
+                that.find('.state').text('已关注');
+            } else {
+                that.data('act', 'watch');
+                that.find('.state').text('关注');
+            }
+            // that.find('.eye.icon').toggleClass('yellow');
+        }
+
+        $('.kb-watch.button').api({
+            method : 'POST',
+            url: 'https://laravel-china.org/courses/articles/{id}/{act}',
+            data: {
+              '_token': Config.token
+            },
+            onSuccess: function(response) {
+                $('a.watch_count').text(response.count);
+            }
+        }).state({
+            onActivate: function() {
+                changeWatchState($(this));
+            },
+            onDeactivate: function() {
+                changeWatchState($(this));
+            }
+        });
+
+        var lastScrollTop = 0;
+        window.addEventListener("scroll", function(){
+           var st = window.pageYOffset || document.documentElement.scrollTop;
+           if (st > lastScrollTop){
+               document.getElementById("right-menu-btn").style.left = "-100%";
+           } else {
+              document.getElementById("right-menu-btn").style.left = "0";
+           }
+           lastScrollTop = st;
+        }, false);
+
+        $('#apply-for-ta-btn').click(function(event) {
+            swal({
+                title: "",
+                html: '你正在申请成为本课程的『见习助教』，助教的主要任务是解答同学们的提问，当有新问题提交时，系统会第一时间通知你。『解答提问』可以提高你的技术能力，锻炼你的问题解决能力，也可以提高你的影响力。满足以下条件后可晋升为 <a href="roles/TeachingAssistant" target="_blank">『金牌助教』</a> 用户身份。 <hr style="background: #fff;display: block;height: 1px;border: 0;border-top: 1px solid #d4d4d4;margin: 1em 0;padding: 0;"><div style="text-align:left;"><ol><li>5 个以上『选中答案』；</li><li>所有回复获得过 10 个以上点赞；</li><li>一个月内不回答问题将视为放弃，会自动取消『见习助教』身份，并不再接收到『新问题』的消息通知。</li></ol></div>',
+                type: "warning",
+                // input: 'checkbox',
+                showCancelButton: true,
+                cancelButtonText: "取消",
+                confirmButtonText: "申请加入"
+            }).then(function(){
+                $('#apply-for-ta-form').submit();
+            }).catch(swal.noop);
+        });
+
+        $('#cancel-for-ta-btn').click(function(event) {
+            swal({
+                title: "",
+                html: '您要取消『见习助教』的身份吗？取消后将不再接收到课程问题通知。',
+                type: "warning",
+                // input: 'checkbox',
+                showCancelButton: true,
+                cancelButtonText: "取消",
+                confirmButtonText: "取消申请"
+            }).then(function(){
+                $('#apply-for-ta-form').submit();
+            }).catch(swal.noop);
+       });
+
+    });
+</script>
+
+
+<script>
+
+    $(document).ready(function()
+    {
+        function changeStarState(that) {
+            if (that.data('act') == 'star') {
+                that.data('act', 'unstar');
+                that.find('.state').text('已点赞');
+            } else {
+                that.data('act', 'star');
+                that.find('.state').text('点赞');
+            }
+        }
+        $('.kb-star.button').api({
+            method : 'POST',
+            url: 'https://laravel-china.org/courses/articles/{id}/{act}',
+            data: {
+              '_token': Config.token
+            },
+            onSuccess: function(response) {
+                $('a.star_count').text(response.count);
+
+                            }
+        }).state({
+            onActivate: function() {
+                changeStarState($(this));
+                changeStarState($('.kb-star-big.button'));
+            },
+            onDeactivate: function() {
+                changeStarState($(this));
+                changeStarState($('.kb-star-big.button'));
+            }
+        });
+
+    });
+
+
+</script>
+
+</body>
+</html>
